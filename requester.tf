@@ -29,7 +29,7 @@ variable "requester_allow_remote_vpc_dns_resolution" {
 provider "aws" {
   alias  = "requester"
   region = var.requester_region
-
+  profile   = var.aws_profile
   assume_role {
     role_arn = var.requester_aws_assume_role_arn
   }
