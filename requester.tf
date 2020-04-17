@@ -29,7 +29,6 @@ variable "requester_allow_remote_vpc_dns_resolution" {
 provider "aws" {
   alias  = "requester"
   region = var.requester_region
-
   assume_role {
     role_arn = var.requester_aws_assume_role_arn
   }
@@ -104,9 +103,13 @@ resource "aws_vpc_peering_connection" "requester" {
   auto_accept   = false
 
   tags = module.requester.tags
+
+  requester {
+    allow_remote_vpc_dns_resolution = var.requester_allow_remote_vpc_dns_resolution
+  }
 }
 
-resource "aws_vpc_peering_connection_options" "requester" {
+/* resource "aws_vpc_peering_connection_options" "requester" {
   provider = aws.requester
 
   # As options can't be set until the connection has been accepted
@@ -116,7 +119,7 @@ resource "aws_vpc_peering_connection_options" "requester" {
   requester {
     allow_remote_vpc_dns_resolution = var.requester_allow_remote_vpc_dns_resolution
   }
-}
+} */
 
 locals {
   requester_aws_route_table_ids           = distinct(sort(data.aws_route_table.requester.*.route_table_id))

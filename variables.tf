@@ -1,5 +1,6 @@
+
 variable "enabled" {
-  default     = "true"
+  default     = true
   description = "Set to false to prevent the module from creating or accessing any resources"
 }
 
@@ -37,7 +38,7 @@ variable "tags" {
 }
 
 variable "auto_accept" {
-  default     = "true"
+  default     = true
   description = "Automatically accept the peering"
 }
 
