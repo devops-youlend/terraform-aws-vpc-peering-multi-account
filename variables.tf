@@ -1,7 +1,3 @@
-variable "aws_profile" {
-  default     = ""
-  description = "WAS profile from ~/.aws/credentials file"
-}
 
 variable "enabled" {
   default     = true
