@@ -46,7 +46,7 @@ locals {
 }
 
 module "accepter" {
-  source     = "git::https://github.com/cloudposse/terraform-null-label.git?ref=0.12/master"
+  source     = "git::https://github.com/devops-youlend/terraform-null-label.git?ref=main"
   enabled    = var.enabled
   namespace  = var.namespace
   name       = var.name
