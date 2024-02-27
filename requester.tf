@@ -45,7 +45,7 @@ locals {
 }
 
 module "requester" {
-  source     = "git::https://github.com/cloudposse/terraform-null-label.git?ref=master"
+  source     = "git::https://github.com/cloudposse/terraform-null-label.git?ref=0.12/master"
   enabled    = var.enabled
   namespace  = var.namespace
   name       = var.name
